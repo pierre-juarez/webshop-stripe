@@ -21,4 +21,15 @@ export class CartService {
     console.log("🚀 ~ file: cart.service.ts:17 ~ CartService ~ addToCard ~ value", this.cart.value)
   }
 
+  getTotal(items: Array<CartItem>): number{
+    return items
+      .map(item => (item.quantity * item.price))
+      .reduce((prev, curr) => (prev + curr), 0);
+  }
+
+  clearCart(): void{
+    this.cart.next({ items: [] });
+    this._snackBar.open('Cart is cleared!', 'Ok', { duration: 3000 });
+  }
+
 }
