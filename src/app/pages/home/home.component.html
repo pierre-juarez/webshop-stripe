@@ -6,8 +6,9 @@
       <product-header (columnsCountChange)="onColumsCountChange($event)"></product-header>
       {{ cols }} - {{ category }}
       <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
-        <mat-grid-tile>
+        <mat-grid-tile *ngFor="let product of products">
           <product-box 
+          [product]="product"
           (addToCart)="onAddToCard($event)"
           class="w-full" [fullWidthMode]="cols === 1"></product-box>
         </mat-grid-tile>       
