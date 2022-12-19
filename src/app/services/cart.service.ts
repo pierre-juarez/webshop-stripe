@@ -45,7 +45,7 @@ export class CartService {
     const operator = (operation === 'add') ? (+1) : (-1);
     const filteredItems = this.cart.value.items.map( 
       (_item) => {
-        if(_item.quantity !== 0){
+        if(_item.quantity > 1 || ( _item.quantity === 1 && operation === 'add')){
           if(_item.id === item.id){ return { ..._item, quantity: _item.quantity + operator } }
         }else{
           itemRemoved = _item;
