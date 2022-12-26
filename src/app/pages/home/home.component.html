@@ -3,7 +3,12 @@
       <filter (showCategory)="onShowCategory($event)"></filter>
     </mat-drawer>
     <mat-drawer-content class="p-6">
-      <product-header (columnsCountChange)="onColumsCountChange($event)"></product-header>
+      <product-header 
+        (columnsCountChange)="onColumsCountChange($event)"
+        (itemsCountChange)="onItemsCountChange($event)"
+        (sortChange)="onSortChange($event)"
+      >
+      </product-header>
       {{ cols }} - {{ category }}
       <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
         <mat-grid-tile *ngFor="let product of products">
