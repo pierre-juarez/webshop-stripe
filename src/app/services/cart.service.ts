@@ -41,10 +41,10 @@ export class CartService {
       if(_item.id === item.id){
         _item.quantity--;
         if(_item.quantity === 0){
-          itemForRemoval = item;
+          itemForRemoval = _item;
         }
       }
-      return item;
+      return _item;
     });
 
     if(itemForRemoval){
